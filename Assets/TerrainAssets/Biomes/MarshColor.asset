@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4529944aa38dfe147858bc11c8e5ab06, type: 3}
+  m_Name: MarshColor
+  m_EditorClassIdentifier: 
+  autoUpdate: 0
+  baseColors:
+  - {r: 0.12235301, g: 0.19351295, b: 0.22700001, a: 0}
+  - {r: 0.21176471, g: 0.16862746, b: 0.14509805, a: 0}
+  - {r: 0.19607843, g: 0.20784314, b: 0.17254902, a: 0}
+  - {r: 0.17254902, g: 0.20392157, b: 0.14509805, a: 0}
+  - {r: 0.20392157, g: 0.21568628, b: 0.17254902, a: 0}
+  baseStartHeights:
+  - 0
+  - 0.122
+  - 0.334
+  - 0.561
+  - 0.81
+  baseBlends:
+  - 0.053
+  - 0.048
+  - 0.053
+  - 0.069
+  - 0.048

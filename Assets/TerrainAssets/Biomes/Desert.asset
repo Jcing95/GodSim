@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc61c91c6919c67459b855a9fc590d8c, type: 3}
+  m_Name: Desert
+  m_EditorClassIdentifier: 
+  autoUpdate: 0
+  hot: 1
+  dry: 1
+  high: 0
+  plants:
+  - {fileID: 919132149155446097, guid: 0c6492f896ee5c642a2167afbe5feab7, type: 3}
+  - {fileID: 919132149155446097, guid: 19c91618885366e4fa7cf3b9458d8375, type: 3}
+  - {fileID: 919132149155446097, guid: 335cfad4c2b2eb64e843af1e63cf33bf, type: 3}
+  - {fileID: 919132149155446097, guid: 6af78f2e5a2772e4ea422d91ea3713e1, type: 3}
+  - {fileID: 919132149155446097, guid: 54e3bc0c7d4109942b8fc4805bff11ce, type: 3}
+  colors: {fileID: 11400000, guid: bb9f31c1f06b75c44a54bf7453ddc92b, type: 2}

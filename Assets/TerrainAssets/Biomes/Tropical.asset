@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc61c91c6919c67459b855a9fc590d8c, type: 3}
+  m_Name: Tropical
+  m_EditorClassIdentifier: 
+  autoUpdate: 0
+  hot: 1
+  dry: 0
+  high: 1
+  plants:
+  - {fileID: 919132149155446097, guid: 5e3bf12fecc4f31408e57d1d5d234bc4, type: 3}
+  - {fileID: 919132149155446097, guid: fc2e7d2bfd6a329468d7f33768a3b1d1, type: 3}
+  - {fileID: 919132149155446097, guid: 42bceb800e3918b4184c83e56eec1803, type: 3}
+  - {fileID: 919132149155446097, guid: 15ee764ff66aa6f41a4b7cbe7ea4061d, type: 3}
+  - {fileID: 919132149155446097, guid: 4a3e961d81bcdf84a84f762ed28a105e, type: 3}
+  colors: {fileID: 11400000, guid: ec11fc7470b5fcf46b9301ea5b222425, type: 2}

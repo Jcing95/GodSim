@@ -30,6 +30,7 @@ Shader "Custom/Terrain"
         struct Input
         {
             float3 worldPos;
+            float3 color : COLOR;
         };
 
         float inverseLerp(float a, float b, float value) {
@@ -45,11 +46,13 @@ Shader "Custom/Terrain"
 
         void surf (Input IN, inout SurfaceOutputStandard o)
         {
-            float heightPercent = inverseLerp(minHeight,maxHeight, IN.worldPos.y);
-            for(int i = 0; i < baseColorCount; i++) {
-                float drawStrength = inverseLerp(-baseBlends[i]/2-epsilon, baseBlends[i]/2, heightPercent - baseStartHeights[i]);
-                o.Albedo = o.Albedo * (1-drawStrength) + baseColors[i] * drawStrength;
-            }
+            o.Albedo = IN.color;
+            //float heightPercent = inverseLerp(minHeight,maxHeight, IN.worldPos.y);
+            //for(int i = 0; i < baseColorCount; i++) {
+            //    float drawStrength = inverseLerp(-baseBlends[i]/2-epsilon, baseBlends[i]/2, heightPercent - baseStartHeights[i]);
+            //    o.Albedo = o.Albedo * (1-drawStrength) + baseColors[i] * drawStrength;
+            //}
+            
         }
         ENDCG
     }

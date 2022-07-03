@@ -81,6 +81,12 @@ public class EndlessTerrain : MonoBehaviour {
         int previousLODIndex = -1;
 
 
+        public bool hasFauna;
+        public bool faunaLoaded;
+
+        GameObject[] fauna;
+
+
 		public TerrainChunk(Vector2 coord, int size, LODInfo[] detailLevels, Transform parent, Material material) {
 			this.detailLevels = detailLevels;
             position = coord * size;
@@ -145,10 +151,14 @@ public class EndlessTerrain : MonoBehaviour {
                 if(lodIndex == 0) {
                     if(collisionLODMesh.hasMesh) {
                         meshCollider.sharedMesh = collisionLODMesh.mesh;
+                        LoadFauna();
                     } else if(!collisionLODMesh.hasRequestedMesh) {
                         collisionLODMesh.RequestMesh(mapData);
                     }
+                } else {
+                    UnloadFauna();
                 }
+
                 terrainChunksVisibleLastUpdate.Add(this);
             }
 			SetVisible (visible);
@@ -162,13 +172,70 @@ public class EndlessTerrain : MonoBehaviour {
 			return meshObject.activeSelf;
 		}
 
+       
+        private void GenerateFauna(int modulo) {
+            LODMesh lodMesh = lodMeshes[0];
+            if(!lodMesh.hasMesh)
+                return;
+            Vector3 posOffset = new Vector3(position.x, 0, position.y) * mapGenerator.terrainData.uniformScale;
+            int len = lodMesh.data.vertices.Length / modulo;
+            fauna = new GameObject[len];
+
+            for(int i = 0; i < fauna.Length; i++) {
+                Vector3 pos = lodMesh.data.vertices[i*modulo];
+                int biomeIndex = lodMesh.data.biomes[i*modulo];
+                GameObject t = (GameObject) Instantiate(GetObjectForBiome(biomeIndex, i), posOffset + pos * mapGenerator.terrainData.uniformScale, Quaternion.identity);
+                t.transform.localScale = Vector3.one * mapGenerator.terrainData.uniformScale / 2;
+                fauna[i] = t;
+            }
+            hasFauna = true;
+            faunaLoaded = true;
+        }
+       
+
+        GameObject GetObjectForBiome(int biomeIndex, int seed) {
+            //pos /= mapGenerator.terrainData.uniformScale;
+            Random.InitState(seed*132456);
+            BiomeData data = mapGenerator.biomes[biomeIndex % 8];
+            int index = Random.Range(0, data.plants.Length);
+            return data.plants[index];
+        }
+
+
+        public void LoadFauna() {
+            if(faunaLoaded)
+                return;
+            if(!hasFauna) {
+                GenerateFauna(120);
+                return;
+            }
+            for(int i = 0; i < fauna.Length; i++) {
+                fauna[i].SetActive(true);
+            }
+            faunaLoaded = true;
+        }
+
+        public void UnloadFauna() {
+            if(!faunaLoaded)
+                return;
+            for(int i = 0; i < fauna.Length; i++) {
+                fauna[i].SetActive(false);
+            }
+            faunaLoaded = false;
+        }
+
 	}
 
     class LODMesh {
+
         public Mesh mesh;
         public bool hasRequestedMesh;
         public bool hasMesh;
+
         int lod;
+
+        public MeshData data;
+
         System.Action updateCallback;
 
         public LODMesh(int lod, System.Action updateCallback) {
@@ -177,15 +244,18 @@ public class EndlessTerrain : MonoBehaviour {
         }   
 
         void OnMeshDataReceived(MeshData meshData) {
+            data = meshData;
             mesh = meshData.CreateMesh();
             hasMesh = true;
             updateCallback();
+
         }
 
         public void RequestMesh(MapData mapData) {
             hasRequestedMesh = true;
             mapGenerator.RequestMeshData(mapData, lod, OnMeshDataReceived);
         }
+
     }
 
     [System.Serializable]

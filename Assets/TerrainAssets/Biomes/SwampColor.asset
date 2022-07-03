@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4529944aa38dfe147858bc11c8e5ab06, type: 3}
+  m_Name: SwampColor
+  m_EditorClassIdentifier: 
+  autoUpdate: 0
+  baseColors:
+  - {r: 0.21176471, g: 0.2784314, b: 0.30980393, a: 0}
+  - {r: 0.29803923, g: 0.27450982, b: 0.101960786, a: 0}
+  - {r: 0.29803923, g: 0.3372549, b: 0.101960786, a: 0}
+  - {r: 0.29803923, g: 0.4, b: 0.101960786, a: 0}
+  - {r: 0.078431375, g: 0.22745098, b: 0.019607844, a: 0}
+  baseStartHeights:
+  - 0
+  - 0.233
+  - 0.397
+  - 0.577
+  - 0.825
+  baseBlends:
+  - 0.053
+  - 0.059
+  - 0.059
+  - 0.069
+  - 0.106

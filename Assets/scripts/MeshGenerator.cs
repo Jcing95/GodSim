@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class MeshGenerator
 {
-   public static MeshData GenerateTerrainMesh(float[,] heightMap, float heightMultiplier, AnimationCurve _heightCurve, int levelOfDetail, bool useFlatShading) {
+   public static MeshData GenerateTerrainMesh(float[,] heightMap, Color[,] colorMap, int[,] biomeMap, float heightMultiplier, AnimationCurve _heightCurve, int levelOfDetail, bool useFlatShading) {
     AnimationCurve heightCurve = new AnimationCurve(_heightCurve.keys);
         
         int meshSimplificationIncrement = levelOfDetail == 0 ? 1 : levelOfDetail * 2;
@@ -43,7 +43,7 @@ public static class MeshGenerator
                 Vector2 percent = new Vector2((x-meshSimplificationIncrement)/(float)meshSize, (y-meshSimplificationIncrement) / (float)meshSize);
                 float height = heightCurve.Evaluate(heightMap[x,y]) * heightMultiplier;
                 Vector3 vertexPosition = new Vector3(topLeftX + percent.x * meshSizeUnsimplified, height , topLeftZ - percent.y * meshSizeUnsimplified);
-                meshData.AddVertex(vertexPosition, percent, vertexIndex);
+                meshData.AddVertex(vertexPosition, percent, colorMap[x,y], biomeMap[x,y], vertexIndex);
 
                 if(x < borderedSize-1 && y < borderedSize -1) {
                     int a = vertexIndicesMap[x,y];
@@ -67,7 +67,10 @@ public static class MeshGenerator
 
 
 public class MeshData {
-    Vector3[] vertices;
+    public Vector3[] vertices;
+    public Color[] colors;
+    public int[] biomes;
+
     int[] triangles;
     Vector2[] uvs;
     Vector3[] bakedNormals;
@@ -83,6 +86,11 @@ public class MeshData {
     public MeshData(int verticesPerLine, bool useFlatShading) {
         this.useFlatShading = useFlatShading;
         vertices = new Vector3[verticesPerLine * verticesPerLine];
+        colors = new Color[vertices.Length];
+        biomes = new int[vertices.Length];
+        //Debug.Log("vert: " + vertices.Length + ", colors: " + colors.Length);
+
+
         uvs = new Vector2[verticesPerLine * verticesPerLine];
         triangles = new int[(verticesPerLine-1) * (verticesPerLine-1) * 6];
 
@@ -90,11 +98,15 @@ public class MeshData {
         borderTriangles = new int[24 * verticesPerLine];
     }
 
-    public void AddVertex(Vector3 vertexPosition, Vector2 uv, int vertexIndex) {
+    public void AddVertex(Vector3 vertexPosition, Vector2 uv, Color color, int biome, int vertexIndex) {
         if(vertexIndex < 0) {
             borderVertices[-vertexIndex-1] = vertexPosition;
+            colors[-vertexIndex-1] = color;
+            biomes[-vertexIndex-1] = biome;
         } else {
             vertices[vertexIndex] = vertexPosition;
+            colors[vertexIndex] = color;
+            biomes[vertexIndex] = biome;
             uvs[vertexIndex] = uv;
         }
     }
@@ -181,14 +193,19 @@ public class MeshData {
     void FlatShading() {
         Vector3[] flatShadedVertices = new Vector3[triangles.Length];
         Vector2[] flatShadedUVs = new Vector2[triangles.Length];
-
+        Color[] flatColors = new Color[triangles.Length];
+        int[] flatBiomes = new int[triangles.Length];
         for(int i=0; i< triangles.Length; i++ ){
             flatShadedVertices[i] = vertices[triangles[i]];
             flatShadedUVs[i] = uvs[triangles[i]];
+            flatColors[i] = colors[triangles[i]];
+            flatBiomes[i] = biomes[triangles[i]];
             triangles[i] = i;
         }
 
         vertices = flatShadedVertices;
+        colors = flatColors;
+        biomes = flatBiomes;
         uvs = flatShadedUVs;
     }
 
@@ -197,6 +214,7 @@ public class MeshData {
         mesh.vertices = vertices;
         mesh.triangles = triangles;
         mesh.uv = uvs;
+        mesh.colors = colors;
         if(useFlatShading) {
             mesh.RecalculateNormals();
         } else {

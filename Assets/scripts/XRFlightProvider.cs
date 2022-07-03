@@ -39,7 +39,7 @@ namespace UnityEngine.XR.Interaction.Toolkit
 
             Vector2 rightInput = ReadRightInput();
 
-            Debug.Log("turnInput: " + leftInput + " moveInput: " + rightInput);
+            //Debug.Log("turnInput: " + leftInput + " moveInput: " + rightInput);
             var translationInWorldSpace = ComputeDesiredMove(leftInput, rightInput);
 
             switch (m_GravityApplicationMode)

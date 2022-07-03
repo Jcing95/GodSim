@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc61c91c6919c67459b855a9fc590d8c, type: 3}
+  m_Name: Swamp
+  m_EditorClassIdentifier: 
+  autoUpdate: 0
+  hot: 1
+  dry: 0
+  high: 0
+  plants:
+  - {fileID: 919132149155446097, guid: f87fdd25f9e6950478938dff43708578, type: 3}
+  - {fileID: 919132149155446097, guid: 101fa3e8a73a5ac47ab9a52b8389d1eb, type: 3}
+  - {fileID: 919132149155446097, guid: d136acc4838a8ad4faf8c9c04b2fd766, type: 3}
+  - {fileID: 919132149155446097, guid: 1b16ea7bc4fa4fc45b68de3d4d16e18f, type: 3}
+  - {fileID: 919132149155446097, guid: 97277d3ce82e9424ba2c404cdcacfa90, type: 3}
+  - {fileID: 919132149155446097, guid: 4305db03045238341876b8323aa0e0dc, type: 3}
+  colors: {fileID: 11400000, guid: 40b9d576550474642bc14fa85b64648b, type: 2}

@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4529944aa38dfe147858bc11c8e5ab06, type: 3}
+  m_Name: TundraColor
+  m_EditorClassIdentifier: 
+  autoUpdate: 1
+  baseColors:
+  - {r: 0.4627451, g: 0.32473773, b: 0.2526588, a: 0}
+  - {r: 0.11764706, g: 0.16862746, b: 0.16862746, a: 0}
+  - {r: 0.8679245, g: 0.8679245, b: 0.8679245, a: 0}
+  - {r: 0.31764707, g: 0.26666668, b: 0.31764707, a: 0}
+  - {r: 0.8666667, g: 0.8666667, b: 0.8666667, a: 0}
+  baseStartHeights:
+  - 0
+  - 0.244
+  - 0.429
+  - 0.524
+  - 0.873
+  baseBlends:
+  - 0.127
+  - 0.042
+  - 0.095
+  - 0.153
+  - 0.45

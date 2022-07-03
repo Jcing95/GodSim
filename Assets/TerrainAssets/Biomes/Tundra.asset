@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc61c91c6919c67459b855a9fc590d8c, type: 3}
+  m_Name: Tundra
+  m_EditorClassIdentifier: 
+  autoUpdate: 0
+  hot: 0
+  dry: 1
+  high: 0
+  plants:
+  - {fileID: 919132149155446097, guid: e1f1708dddf15f849bec7cfc97a738f9, type: 3}
+  - {fileID: 919132149155446097, guid: db81823e7cd82f0469acaf51dbde4fb2, type: 3}
+  - {fileID: 919132149155446097, guid: 6813721aded7a934188ddc8a5122c236, type: 3}
+  - {fileID: 919132149155446097, guid: 46fc026b07d86ae4690f740c2d592df1, type: 3}
+  - {fileID: 919132149155446097, guid: 03c73b4ebf3455a4c92e2000f81cffce, type: 3}
+  colors: {fileID: 11400000, guid: 742de554a6db0764197e4f2a4bd2aa3c, type: 2}
