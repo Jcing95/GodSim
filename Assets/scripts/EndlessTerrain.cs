@@ -206,7 +206,7 @@ public class EndlessTerrain : MonoBehaviour {
             if(faunaLoaded)
                 return;
             if(!hasFauna) {
-                GenerateFauna(120);
+                GenerateFauna(40);
                 return;
             }
             for(int i = 0; i < fauna.Length; i++) {

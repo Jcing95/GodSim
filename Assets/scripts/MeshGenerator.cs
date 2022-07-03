@@ -101,8 +101,8 @@ public class MeshData {
     public void AddVertex(Vector3 vertexPosition, Vector2 uv, Color color, int biome, int vertexIndex) {
         if(vertexIndex < 0) {
             borderVertices[-vertexIndex-1] = vertexPosition;
-            colors[-vertexIndex-1] = color;
-            biomes[-vertexIndex-1] = biome;
+            //colors[-vertexIndex-1] = color;
+            //biomes[-vertexIndex-1] = biome;
         } else {
             vertices[vertexIndex] = vertexPosition;
             colors[vertexIndex] = color;
