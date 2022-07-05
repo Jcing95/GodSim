@@ -11,8 +11,8 @@ umschauen (links/rechts) und fliegen (oben/unten)
 ---
 Die Welt ist unendlich groß! Am besten einfach umschauen und erkunden!
 
-Die einzelnen Gebiete zeichnen sich durch verschiedene Bodenfärbungen und Pflanzen / Steine aus.
-Insgesamt gibt es acht verschiedene Gebiete zu erkunden.
+Die einzelnen Gebietstypen zeichnen sich durch verschiedene Bodenfärbungen und Pflanzen / Steine aus.
+Insgesamt gibt es acht verschiedene Gebietstypen zu erkunden.
 Da diese Zufällig (aber immer gleich) generiert werden sind manche auch erst nach weiten Distanzen zu finden.
 
 Ein Ändern der Welt durch den Spieler ist leider (noch) nicht möglich.
